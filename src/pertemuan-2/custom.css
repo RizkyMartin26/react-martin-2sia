@@ -1,0 +1,81 @@
+/* Mengambil font elegan dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+/* Variabel warna agar konsisten */
+:root {
+    --primary-bg: #f9f8f6;       /* Putih tulang / cream lembut */
+    --card-bg: #ffffff;          /* Putih bersih */
+    --text-dark: #2c2c2c;        /* Abu-abu hampir hitam (lebih lembut dari hitam pekat) */
+    --text-light: #6b6b6b;       /* Abu-abu untuk teks paragraf */
+    --accent-gold: #c5a880;      /* Warna emas / champagne elegan */
+}
+
+/* Styling untuk keseluruhan halaman */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Memastikan posisi di tengah layar */
+}
+
+/* Container utama */
+.card {
+    width: 100%;
+    max-width: 650px;
+    background: var(--card-bg);
+    padding: 50px 60px; /* Padding yang luas memberikan kesan premium */
+    border-radius: 12px; /* Lengkungan sudut yang lebih halus */
+    /* Shadow yang lebar namun sangat transparan/halus */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); 
+    /* Garis tepi tipis bernuansa emas */
+    border: 1px solid rgba(197, 168, 128, 0.2); 
+}
+
+/* Header utama */
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-dark);
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1.5px; /* Spasi antar huruf membuat judul lebih elegan */
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Paragraf */
+p {
+    font-size: 15px;
+    line-height: 1.9; /* Jarak antar baris yang lega */
+    color: var(--text-light);
+    font-weight: 300;
+    text-align: justify; /* Terlihat lebih rapi seperti majalah */
+    margin-bottom: 20px;
+}
+
+/* Garis pemisah */
+hr {
+    border: none;
+    height: 1px;
+    /* Gradasi garis yang memudar di ujung kiri dan kanan */
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    margin: 35px 0;
+    opacity: 0.7;
+}
+
+/* Greeting / Teks kecil */
+small {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+    color: var(--accent-gold); /* Menggunakan aksen emas */
+    font-size: 15px;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
