@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { FaThLarge, FaList, FaHeadphones } from "react-icons/fa";
+import { FaThLarge, FaList, FaHeadphones, FaExclamationTriangle } from "react-icons/fa";
 
 export default function Sidebar() {
 
-  // ✅ MENU CLASS SESUAI MODUL (PAKAI isActive)
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4 space-x-2
     ${
@@ -27,11 +26,7 @@ export default function Sidebar() {
 
           {/* Dashboard */}
           <li>
-            <NavLink
-              id="menu-1"
-              to="/"
-              className={menuClass}
-            >
+            <NavLink to="/" className={menuClass}>
               <FaThLarge className="mr-4 text-xl" />
               Dashboard
             </NavLink>
@@ -39,11 +34,7 @@ export default function Sidebar() {
 
           {/* Orders */}
           <li>
-            <NavLink
-              id="menu-2"
-              to="/orders"
-              className={menuClass}
-            >
+            <NavLink to="/orders" className={menuClass}>
               <FaList className="mr-4 text-xl" />
               Orders
             </NavLink>
@@ -51,13 +42,31 @@ export default function Sidebar() {
 
           {/* Customers */}
           <li>
-            <NavLink
-              id="menu-3"
-              to="/customers"
-              className={menuClass}
-            >
+            <NavLink to="/customers" className={menuClass}>
               <FaHeadphones className="mr-4 text-xl" />
               Customers
+            </NavLink>
+          </li>
+
+          {/* ✅ ERROR MENU (TAMBAHAN) */}
+          <li>
+            <NavLink to="/error-400" className={menuClass}>
+              <FaExclamationTriangle className="mr-4 text-xl" />
+              Error 400
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/error-401" className={menuClass}>
+              <FaExclamationTriangle className="mr-4 text-xl" />
+              Error 401
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/error-403" className={menuClass}>
+              <FaExclamationTriangle className="mr-4 text-xl" />
+              Error 403
             </NavLink>
           </li>
 
