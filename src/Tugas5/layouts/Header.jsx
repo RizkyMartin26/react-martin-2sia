@@ -19,11 +19,11 @@ export default function Header() {
       {/* Right */}
      <div className="flex items-center gap-3 ml-2">
   <span className="text-sm text-gray-600">
-    Hello, <b className="text-gray-800">Martin</b>
+    Hello, <b className="text-gray-800">Sigit</b>
   </span>
 
   <img
-    src="/img/image.png"
+    src="/img/sigit.png"
     alt="avatar"
     className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
   />

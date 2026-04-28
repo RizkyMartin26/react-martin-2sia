@@ -3,6 +3,10 @@ import PageHeader from "../components/PageHeader";
 
 export default function Customers() {
   const [search, setSearch] = useState("");
+<<<<<<< HEAD
+=======
+  const [showForm, setShowForm] = useState(false);
+>>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
 
   const [customers, setCustomers] = useState([
     { id: 1, name: "Rizky", email: "rizky@email.com", phone: "0811111111" },
@@ -37,6 +41,23 @@ export default function Customers() {
     { id: 30, name: "Kevin", email: "kevin@email.com", phone: "0811111131" },
   ]);
 
+<<<<<<< HEAD
+=======
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleAdd = () => {
+    if (!form.name || !form.email || !form.phone) return;
+
+    setCustomers([...customers, { id: customers.length + 1, ...form }]);
+    setForm({ name: "", email: "", phone: "" });
+    setShowForm(false);
+  };
+
+>>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
   const handleDelete = (id) => {
     setCustomers(customers.filter((c) => c.id !== id));
   };
@@ -49,6 +70,7 @@ export default function Customers() {
 
   return (
     <div className="px-6 py-6">
+<<<<<<< HEAD
       <PageHeader title="Customers" breadcrumb="Dashboard / Customers" />
 
       <input
@@ -75,14 +97,65 @@ export default function Customers() {
             {filtered.map((c) => (
               <tr key={c.id} className="border-t">
                 <td className="p-4">{c.id}</td>
+=======
+
+      <PageHeader title="Customers" breadcrumb="Dashboard / Customers">
+        <button
+          onClick={() => setShowForm(!showForm)}
+          className="bg-green-500 text-white px-4 py-2 rounded-xl"
+        >
+          + Add Customer
+        </button>
+      </PageHeader>
+
+      {/* FORM */}
+      {showForm && (
+        <div className="bg-white p-5 rounded-2xl shadow mb-6">
+          <div className="grid grid-cols-3 gap-4">
+            <input placeholder="Name" className="border p-2 rounded"
+              value={form.name} onChange={(e)=>setForm({...form,name:e.target.value})}/>
+            <input placeholder="Email" className="border p-2 rounded"
+              value={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/>
+            <input placeholder="Phone" className="border p-2 rounded"
+              value={form.phone} onChange={(e)=>setForm({...form,phone:e.target.value})}/>
+          </div>
+
+          <button onClick={handleAdd}
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-xl">
+            Simpan
+          </button>
+        </div>
+      )}
+
+      {/* SEARCH */}
+      <input
+        type="text"
+        placeholder="🔍 Search..."
+        className="w-full mb-6 px-4 py-3 border rounded-xl"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {/* TABLE */}
+      <div className="bg-white rounded-2xl shadow overflow-hidden">
+        <table className="w-full">
+          <tbody>
+            {filtered.map((c) => (
+              <tr key={c.id} className="border-t">
+>>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
                 <td className="p-4">{c.name}</td>
                 <td className="p-4">{c.email}</td>
                 <td className="p-4">{c.phone}</td>
                 <td className="p-4">
+<<<<<<< HEAD
                   <button
                     onClick={() => handleDelete(c.id)}
                     className="bg-red-500 text-white px-3 py-1 rounded"
                   >
+=======
+                  <button onClick={() => handleDelete(c.id)}
+                    className="bg-red-500 text-white px-3 py-1 rounded">
+>>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
                     Hapus
                   </button>
                 </td>
@@ -91,6 +164,7 @@ export default function Customers() {
           </tbody>
         </table>
       </div>
+
     </div>
   );
 }

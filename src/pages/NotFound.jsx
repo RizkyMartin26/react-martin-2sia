@@ -1,29 +1,22 @@
 import { Link } from "react-router-dom";
 
-export default function NotFound() {
+export default function ErrorPage({ code, description, image }) {
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh] text-center px-4">
+    <div className="flex flex-col items-center justify-center h-[80vh] text-center">
       
-      {/* Kode 404 */}
-      <h1 className="text-7xl font-bold text-green-500 mb-4">
-        404
-      </h1>
+      <h1 className="text-6xl font-bold text-red-500">{code}</h1>
 
-      {/* Pesan */}
-      <p className="text-xl text-gray-700 mb-2">
-        Oops! Halaman tidak ditemukan
-      </p>
+      <p className="text-xl text-gray-700 mt-2">{description}</p>
 
-      <p className="text-gray-400 mb-6">
-        Halaman yang kamu cari tidak tersedia atau sudah dipindahkan.
-      </p>
+      {image && (
+        <img src={image} className="w-60 mt-4" />
+      )}
 
-      {/* Tombol balik */}
       <Link
         to="/"
-        className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl shadow-md transition"
+        className="mt-6 bg-green-500 text-white px-6 py-2 rounded-xl"
       >
-        Kembali ke Dashboard
+        Back to Dashboard
       </Link>
 
     </div>
