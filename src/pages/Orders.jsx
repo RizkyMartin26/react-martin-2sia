@@ -3,10 +3,7 @@ import PageHeader from "../components/PageHeader";
 
 export default function Orders() {
   const [search, setSearch] = useState("");
-<<<<<<< HEAD
-=======
   const [showForm, setShowForm] = useState(false);
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
 
   const [orders, setOrders] = useState([
     { id: 1, customer: "Rizky", menu: "Nasi Goreng", status: "Delivered", total: "$10" },
@@ -41,8 +38,6 @@ export default function Orders() {
     { id: 30, customer: "Kevin", menu: "Steak", status: "Delivered", total: "$20" },
   ]);
 
-<<<<<<< HEAD
-=======
   const [form, setForm] = useState({
     customer: "",
     menu: "",
@@ -53,12 +48,24 @@ export default function Orders() {
   const handleAdd = () => {
     if (!form.customer || !form.menu || !form.status || !form.total) return;
 
-    setOrders([...orders, { id: orders.length + 1, ...form }]);
-    setForm({ customer: "", menu: "", status: "", total: "" });
+    setOrders([
+      ...orders,
+      {
+        id: orders.length + 1,
+        ...form,
+      },
+    ]);
+
+    setForm({
+      customer: "",
+      menu: "",
+      status: "",
+      total: "",
+    });
+
     setShowForm(false);
   };
 
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
   const handleDelete = (id) => {
     setOrders(orders.filter((item) => item.id !== id));
   };
@@ -71,19 +78,98 @@ export default function Orders() {
 
   return (
     <div className="px-6 py-6">
-<<<<<<< HEAD
-      <PageHeader title="Orders" breadcrumb="Dashboard / Orders" />
 
+      <PageHeader title="Orders" breadcrumb="Dashboard / Orders">
+
+        <button
+          onClick={() => setShowForm(!showForm)}
+          className="bg-blue-500 text-white px-4 py-2 rounded-xl"
+        >
+          + Add Orders
+        </button>
+
+      </PageHeader>
+
+      {/* FORM */}
+      {showForm && (
+        <div className="bg-white p-5 rounded-2xl shadow mb-6">
+
+          <div className="grid grid-cols-4 gap-4">
+
+            <input
+              placeholder="Customer"
+              className="border p-2 rounded"
+              value={form.customer}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  customer: e.target.value,
+                })
+              }
+            />
+
+            <input
+              placeholder="Menu"
+              className="border p-2 rounded"
+              value={form.menu}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  menu: e.target.value,
+                })
+              }
+            />
+
+            <input
+              placeholder="Status"
+              className="border p-2 rounded"
+              value={form.status}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  status: e.target.value,
+                })
+              }
+            />
+
+            <input
+              placeholder="Total"
+              className="border p-2 rounded"
+              value={form.total}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  total: e.target.value,
+                })
+              }
+            />
+
+          </div>
+
+          <button
+            onClick={handleAdd}
+            className="mt-4 bg-green-500 text-white px-4 py-2 rounded-xl"
+          >
+            Simpan
+          </button>
+
+        </div>
+      )}
+
+      {/* SEARCH */}
       <input
         type="text"
-        placeholder="🔍 Search orders..."
+        placeholder="🔍 Search..."
         className="w-full mb-6 px-4 py-3 border rounded-xl"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
 
+      {/* TABLE */}
       <div className="bg-white rounded-2xl shadow overflow-hidden">
+
         <table className="w-full">
+
           <thead className="bg-gray-50">
             <tr>
               <th className="p-4">ID</th>
@@ -96,75 +182,32 @@ export default function Orders() {
           </thead>
 
           <tbody>
+
             {filtered.map((item) => (
               <tr key={item.id} className="border-t">
+
                 <td className="p-4">{item.id}</td>
-=======
-
-      <PageHeader title="Orders" breadcrumb="Dashboard / Orders">
-        <button
-          onClick={() => setShowForm(!showForm)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-xl"
-        >
-          + Add Orders
-        </button>
-      </PageHeader>
-
-      {showForm && (
-        <div className="bg-white p-5 rounded-2xl shadow mb-6">
-          <div className="grid grid-cols-4 gap-4">
-            <input placeholder="Customer" className="border p-2 rounded"
-              value={form.customer} onChange={(e)=>setForm({...form,customer:e.target.value})}/>
-            <input placeholder="Menu" className="border p-2 rounded"
-              value={form.menu} onChange={(e)=>setForm({...form,menu:e.target.value})}/>
-            <input placeholder="Status" className="border p-2 rounded"
-              value={form.status} onChange={(e)=>setForm({...form,status:e.target.value})}/>
-            <input placeholder="Total" className="border p-2 rounded"
-              value={form.total} onChange={(e)=>setForm({...form,total:e.target.value})}/>
-          </div>
-
-          <button onClick={handleAdd}
-            className="mt-4 bg-green-500 text-white px-4 py-2 rounded-xl">
-            Simpan
-          </button>
-        </div>
-      )}
-
-      <input
-        type="text"
-        placeholder="🔍 Search..."
-        className="w-full mb-6 px-4 py-3 border rounded-xl"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      <div className="bg-white rounded-2xl shadow overflow-hidden">
-        <table className="w-full">
-          <tbody>
-            {filtered.map((item) => (
-              <tr key={item.id} className="border-t">
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
                 <td className="p-4">{item.customer}</td>
                 <td className="p-4">{item.menu}</td>
                 <td className="p-4">{item.status}</td>
                 <td className="p-4">{item.total}</td>
+
                 <td className="p-4">
-<<<<<<< HEAD
                   <button
                     onClick={() => handleDelete(item.id)}
                     className="bg-red-500 text-white px-3 py-1 rounded"
                   >
-=======
-                  <button onClick={() => handleDelete(item.id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded">
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5
                     Hapus
                   </button>
                 </td>
+
               </tr>
             ))}
+
           </tbody>
+
         </table>
+
       </div>
 
     </div>

@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
-<<<<<<< HEAD:src/components/Sidebar.jsx
-import { FaThLarge, FaList, FaHeadphones, FaExclamationTriangle } from "react-icons/fa";
-=======
-import { FaThLarge, FaList, FaUsers, FaExclamationTriangle } from "react-icons/fa";
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5:src/layouts/Sidebar.jsx
+import {
+  FaThLarge,
+  FaList,
+  FaUsers,
+  FaBoxOpen,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 
 export default function Sidebar() {
 
@@ -26,76 +28,52 @@ export default function Sidebar() {
           <h1 className="text-3xl font-bold text-gray-800">
             Sedap<span className="text-green-500">.</span>
           </h1>
+
           <p className="text-sm text-gray-400">
             Admin Dashboard
           </p>
         </div>
 
-        {/* MAIN MENU */}
+        {/* ================= MAIN MENU ================= */}
         <ul className="space-y-2">
 
+          {/* DASHBOARD */}
           <li>
             <NavLink to="/" className={menuClass}>
-<<<<<<< HEAD:src/components/Sidebar.jsx
-              <FaThLarge className="mr-4 text-xl" />
-              Dashboard
-=======
               <FaThLarge className="text-lg" />
               <span>Dashboard</span>
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5:src/layouts/Sidebar.jsx
             </NavLink>
           </li>
 
+          {/* ORDERS */}
           <li>
             <NavLink to="/orders" className={menuClass}>
-<<<<<<< HEAD:src/components/Sidebar.jsx
-              <FaList className="mr-4 text-xl" />
-              Orders
-=======
               <FaList className="text-lg" />
               <span>Orders</span>
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5:src/layouts/Sidebar.jsx
             </NavLink>
           </li>
 
+          {/* CUSTOMERS */}
           <li>
             <NavLink to="/customers" className={menuClass}>
-<<<<<<< HEAD:src/components/Sidebar.jsx
-              <FaHeadphones className="mr-4 text-xl" />
-              Customers
-=======
               <FaUsers className="text-lg" />
               <span>Customers</span>
->>>>>>> d3d8fce44a04343a7378f7989b134b1ff7878cf5:src/layouts/Sidebar.jsx
             </NavLink>
           </li>
 
-          {/* ✅ ERROR MENU (TAMBAHAN) */}
+          {/* PRODUCTS */}
           <li>
-            <NavLink to="/error-400" className={menuClass}>
-              <FaExclamationTriangle className="mr-4 text-xl" />
-              Error 400
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/error-401" className={menuClass}>
-              <FaExclamationTriangle className="mr-4 text-xl" />
-              Error 401
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/error-403" className={menuClass}>
-              <FaExclamationTriangle className="mr-4 text-xl" />
-              Error 403
+            <NavLink to="/products" className={menuClass}>
+              <FaBoxOpen className="text-lg" />
+              <span>Products</span>
             </NavLink>
           </li>
 
         </ul>
 
-        {/* 🔥 ERROR MENU */}
+        {/* ================= ERROR MENU ================= */}
         <div className="mt-8">
+
           <p className="text-xs text-gray-400 uppercase mb-2">
             Error Pages
           </p>
@@ -124,6 +102,7 @@ export default function Sidebar() {
             </li>
 
           </ul>
+
         </div>
 
       </div>
@@ -133,6 +112,7 @@ export default function Sidebar() {
 
         {/* CARD */}
         <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-4 text-white flex items-center justify-between shadow-md">
+
           <div>
             <p className="text-xs leading-tight">
               Manage your menu easily!
@@ -148,12 +128,16 @@ export default function Sidebar() {
             className="w-12 h-12 rounded-full border-2 border-white"
             alt="profile"
           />
+
         </div>
 
         {/* FOOTER */}
         <div className="mt-6 text-xs text-gray-400">
           <p>Sedap Restaurant Admin</p>
-          <p className="text-gray-300">© 2025 All Rights Reserved</p>
+
+          <p className="text-gray-300">
+            © 2025 All Rights Reserved
+          </p>
         </div>
 
       </div>
